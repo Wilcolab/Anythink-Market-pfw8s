@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Item extends React.Component {
   componentWillMount() {
+    console.log(this.props.item)
     this.props.onLoad(
       Promise.all([
         agent.Items.get(this.props.match.params.id),
