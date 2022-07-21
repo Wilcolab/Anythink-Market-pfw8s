@@ -150,12 +150,6 @@ router.post("/", auth.required, function (req, res, next) {
 
       item.seller = user;
 
-      if (item.image === "") {
-        item.image = "/placeholder.png";
-      }
-
-      console.log("ITEM -->", item);
-
       return item.save().then(function () {
         sendEvent("item_created", { item: req.body.item });
         return res.json({ item: item.toJSONFor(user) });
